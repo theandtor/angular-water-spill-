@@ -1,0 +1,51 @@
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.custom {
+    width: 100px !important;
+}
+.height{
+    height: 600px;
+
+
+}
+.example-sidenav {
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    /* background: rgba(255, 0, 0, 0.5); */
+  }
+.mat-sidenav-route{
+    width: 100px;
+    color: white;
+    text-align: center !important;
+
+
+/* position: absolute; */
+    /* background-position: center; */
+    
+
+}
+/* unvisited link */
+/* a:link {
+    color: green;
+  } */
+  
+  /* visited link
+  a:visited {
+    color: green;
+  } */
+  
+  /* mouse over link */
+  a:hover {
+    color:#ffa0a0;
+  }
+  
+  /* selected link */
+  .selected {
+    color: red;
+  }

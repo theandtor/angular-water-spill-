@@ -1,0 +1,80 @@
+<mat-sidenav-container (backdropClick)="close()" class="height">
+  <mat-sidenav class="bg-dark text-light" #sidenav mode="push" hasBackdrop="false" (keydown.escape)="close()" disableClose>
+    
+    <img class="center" width="30" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+    <hr>
+    <mat-nav-list class="example-sidenav">
+        <a mat-list-item class="mat-sidenav-route" #home [ngClass]="{selected: flag_home==true}" (click)="changeColor($event)"   routerLink="/home" routerLinkActive="active" (click)="close()" >Home</a>
+        <a mat-list-item class="mat-sidenav-route" #clients [ngClass]="(flag_clients==true) ? 'selected' : ''" (click)="changeColor($event)" routerLink="/clients" routerLinkActive="active" (click)="close()">Clientes</a>
+        <a mat-list-item class="mat-sidenav-route" #medidor [ngClass]="(flag_medidor==true) ? 'selected' : ''" (click)="changeColor($event)" routerLink="/medidor" routerLinkActive="active" (click)="close()">Medidor</a>
+        <a mat-list-item class="mat-sidenav-route" #list [ngClass]="(flag_list==true) ? 'selected' : ''" (click)="changeColor($event)" routerLink="/list" routerLinkActive="active" (click)="close()">Lista de Medidores</a>
+
+    </mat-nav-list>
+<!-- 
+    <p><button class="btn-block" mat-button routerLink="/home" routerLinkActive="active" (click)="close()">Home</button></p>
+    <p><button class="btn-block" mat-button routerLink="/clients" routerLinkActive="active" (click)="close()">Clientes</button></p>
+    <p><button class="btn-block" mat-button routerLink="/medidor" routerLinkActive="active" (click)="close()">Medidor</button></p>
+    <p><button class="btn-block" mat-button routerLink="/list" routerLinkActive="active" (click)="close()">Lista Medidores</button></p>
+    <hr> -->
+    <!-- <p><button class="btn-lg btn-block" mat-button (click)="close()">Cerrar</button></p> -->
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="pos-f-t">
+      <nav class="navbar navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" (click)="sidenav.open()">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- <div class="container p-4">
+      <div class="row">
+        <div class="col md-9">
+          <app-tasks-list></app-tasks-list>
+        </div>
+        <div class="col-md-3">
+          <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+        </div>
+      </div>
+    </div> -->
+
+
+    <!-- <h1 class="title">Angular Router</h1> -->
+    <nav>
+      <a routerLink="/list" routerLinkActive="active">Task List</a>
+      <a routerLink="/compose" routerLinkActive="active">Heroes</a>
+      <a routerLink="/admin" routerLinkActive="active">Admin</a>
+      <a routerLink="/login" routerLinkActive="active">Login</a>
+      <!-- <a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a> -->
+    </nav>
+    <div [@routeAnimation]="getAnimationData(routerOutlet)">
+      <router-outlet #routerOutlet="outlet"></router-outlet>
+    </div>
+    <router-outlet name="popup"></router-outlet>
+  </mat-sidenav-content>
+
+
+</mat-sidenav-container>
+<!-- <app-table ></app-table> -->
+<!-- Button trigger modal -->
+
+<!-- 
+<input  type="password" value="hola" (click)="changevalue($event)" />
+
+<select  >
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</select>
+
+<button [disabled]=0 type="button" (click)="hideshow()" class="btn btn-primary" >
+  Hide/show
+</button>
+<button type="button" (click)="openDialog()" class="btn btn-primary" >
+  Launch demo modal angular material
+</button>
+<button type="button" (click)="functi()" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button> -->
